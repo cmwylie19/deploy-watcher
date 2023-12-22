@@ -1,0 +1,35 @@
+{
+  "name": "deploymentwatcher",
+  "version": "0.0.1",
+  "description": "Watches a deployment",
+  "keywords": [
+    "pepr",
+    "k8s",
+    "policy-engine",
+    "pepr-module",
+    "security"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "pepr": {
+    "name": "DeploymentWatcher",
+    "uuid": "e587ccc0-00e5-5a53-a27d-1c88d19172b8",
+    "onError": "ignore",
+    "alwaysIgnore": {
+      "namespaces": [],
+      "labels": []
+    },
+    "includedFiles": [],
+    "env": {}
+  },
+  "scripts": {
+    "k3d-setup": "k3d cluster delete pepr-dev && k3d cluster create pepr-dev --k3s-arg '--debug@server:0' --wait && kubectl rollout status deployment -n kube-system"
+  },
+  "dependencies": {
+    "pepr": "0.20.3"
+  },
+  "devDependencies": {
+    "typescript": "5.3.3"
+  }
+}
