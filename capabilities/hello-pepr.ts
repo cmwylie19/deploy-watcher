@@ -23,7 +23,7 @@ OnSchedule({
   unit: "minutes",
   run: async () => {
     try {
-      // Reconcile the deployment back to desired state
+      // Keep changing it to try and capture a watcher silent death
       await K8s(kind.Deployment).Apply(
         {
           metadata: {
@@ -43,6 +43,7 @@ OnSchedule({
     }
   },
 });
+
 When(a.Deployment)
   .IsCreatedOrUpdated()
   .WithName("blue")
