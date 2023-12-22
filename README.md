@@ -11,12 +11,16 @@ Update script while watching
 while true; do
     kubectl scale deploy/blue --replicas=0
     sleep 15
+    echo "deployment.apps/blue replicas: $(kubectl get deploy blue --template='{{.spec.replicas}}')"
+    echo "\n"
 done
 ```
 
 
 ```bash
 kubectl scale deploy/blue --replicas=0
+
+k get deploy blue --template='{{.spec.replicas}}'
 ```
 
 
