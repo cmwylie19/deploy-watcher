@@ -1,5 +1,9 @@
 # Debug Watcher
 
+
+Deploy the `hello-pepr.samples.yaml` file with the deployment.    
+
+
 Update script while watching
 
 ```bash
